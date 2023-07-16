@@ -1,5 +1,16 @@
 Enable [Yambar] to show [Hyprland] workspaces.
 
+Assuming you have [Rust installed], run:
+
+```console
+$ cargo install yambar-hyprland-wses
+```
+
+and then use the Yambar config further down in the README. You'll need
+to adjust the `script` path.
+
+# Why?
+
 Yambar [doesn't currently have][nope] a mechanism for displaying
 Hyprland workspaces. There is at least one [polling script] out there
 that does it, but because it is polling, it feels sluggish and is less
@@ -11,7 +22,7 @@ changes whenever they happen. It does so in a way that is compatible
 with the [Yambar script module][script] so that a Yambar configuration
 can visualize an always-up-to-date Hyprland workspace list.
 
-## Outputs
+# Outputs
 
 The script, when run, outputs the following (using Yambar's script
 module output format):
@@ -26,7 +37,7 @@ workspace_N_focused|bool|Whether the workspace is active _and_ its monitor has f
 workspace_count|int|The total number of workspaces
 ```
 
-## Caveats
+# Caveats
 
 Because Hyprland [doesn't provide][empty] a mechanism for querying _all_
 workspaces (including empty ones), you'll only see workspaces up to and
@@ -208,6 +219,7 @@ something good, please do report back!
 
 [Yambar]: https://codeberg.org/dnkl/yambar
 [Hyprland]: https://hyprland.org/
+[Rust]: https://www.rust-lang.org/learn/get-started
 [nope]: https://codeberg.org/dnkl/yambar/issues/279
 [polling script]: https://www.reddit.com/r/yambar/comments/13dlodc/hyprland_yambar_script/
 [plugs]: https://wiki.hyprland.org/Plugins/Using-Plugins/
@@ -217,7 +229,7 @@ something good, please do report back!
 [particles]: https://codeberg.org/dnkl/yambar/src/branch/master/doc/yambar-particles.5.scd
 [click]: https://codeberg.org/dnkl/yambar/src/commit/d6e7710a7ebd0be1f2dba677394f5b30b3e52a4f/doc/yambar-particles.5.scd#L87-L102
 
-## License
+# License
 
 Licensed under either of
 
