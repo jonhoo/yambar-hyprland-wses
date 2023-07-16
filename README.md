@@ -16,7 +16,7 @@ Hyprland workspaces. There is at least one [polling script] out there
 that does it, but because it is polling, it feels sluggish and is less
 efficient than it could be.
 
-This tool uses the [Hyprland plugin interface][plugs] via the [hyprland
+This tool uses the [Hyprland IPC interface][ipc] via the [hyprland
 crate] to query and display the workspace list, and then _listen_ for
 changes whenever they happen. It does so in a way that is compatible
 with the [Yambar script module][script] so that a Yambar configuration
@@ -222,7 +222,7 @@ something good, please do report back!
 [Rust]: https://www.rust-lang.org/learn/get-started
 [nope]: https://codeberg.org/dnkl/yambar/issues/279
 [polling script]: https://www.reddit.com/r/yambar/comments/13dlodc/hyprland_yambar_script/
-[plugs]: https://wiki.hyprland.org/Plugins/Using-Plugins/
+[ipc]: https://wiki.hyprland.org/IPC/
 [hyprland crate]: https://crates.io/crates/hyprland
 [script]: https://codeberg.org/dnkl/yambar/src/branch/master/doc/yambar-modules-script.5.scd
 [empty]: https://github.com/hyprwm/Hyprland/issues/2723
