@@ -1,0 +1,13 @@
+[package]
+name = "yambar-hyprland-wses"
+description = "Hyprland workspace listing script for Yambar"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/jonhoo/yambar-hyprland-wses.git"
+categories = ["command-line-utilities"]
+keywords = ["hyprland", "yambar", "wayland"]
+
+[dependencies]
+anyhow = "1.0.72"
+hyprland = "0.3.8"
