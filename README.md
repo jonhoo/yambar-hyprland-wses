@@ -1,6 +1,6 @@
 Enable [Yambar] to show [Hyprland] workspaces.
 
-Assuming you have [Rust installed], run:
+Assuming you have [Rust installed][Rust], run:
 
 ```console
 $ cargo install yambar-hyprland-wses
