@@ -39,14 +39,12 @@ workspace_count|int|The total number of workspaces
 
 # Caveats
 
-Because Hyprland [doesn't provide][empty] a mechanism for querying _all_
-workspaces (including empty ones), you'll only see workspaces up to and
-including the latest _populated_ workspace unless you do some tricks in
-your Yambar config. The tool _does_ inject workspaces between workspaces
-that are non-empty (which Hyprland also does not report). This may cause
-issues for some, I'm not sure. If I'm not mistaken, this may be
-fundamental to Hyprland's model of workspaces (empty workspaces simply
-do not exist), so there may not be much to do about this.
+In Hyprland, empty workspaces [don't exist][empty], and so you'll only
+see workspaces that have anything on them appear in your bar. To make
+this a little less jarring, this tool will also fill in empty workspaces
+up to the the last populated workspace. If you want all the workspaces
+to always be listed, you'll want to tweak the suggested Yambar config
+slightly (see comments inline below).
 
 Because Yambar's support for plugins is very simple, and its
 "[particles]" are fairly limited, the Yambar configuration is quite
@@ -83,7 +81,9 @@ something good, please do report back!
           ws_empty: &ws_empty 555555ff
           ws_other: &ws_other bbbbbbff
           # you can use `{workspace_N}` here to use the workspace name
-          # assigned by Hyprland instead of hard-coding one here.
+          # assigned by Hyprland instead of hard-coding one here. That
+          # name is, as far as I can tell, always just the index of the
+          # workspace though, so not all that valuable.
           ws_1: &ws_1 "I"
           ws_2: &ws_2 "II"
           ws_3: &ws_3 "III"
@@ -225,7 +225,7 @@ something good, please do report back!
 [ipc]: https://wiki.hyprland.org/IPC/
 [hyprland crate]: https://crates.io/crates/hyprland
 [script]: https://codeberg.org/dnkl/yambar/src/branch/master/doc/yambar-modules-script.5.scd
-[empty]: https://github.com/hyprwm/Hyprland/issues/2723
+[empty]: https://github.com/hyprwm/Hyprland/issues/2723#issuecomment-1637144432
 [particles]: https://codeberg.org/dnkl/yambar/src/branch/master/doc/yambar-particles.5.scd
 [click]: https://codeberg.org/dnkl/yambar/src/commit/d6e7710a7ebd0be1f2dba677394f5b30b3e52a4f/doc/yambar-particles.5.scd#L87-L102
 
