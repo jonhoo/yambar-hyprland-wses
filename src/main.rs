@@ -16,15 +16,13 @@ use std::thread;
 fn report() -> anyhow::Result<()> {
     // We can't get empty workspaces: https://github.com/hyprwm/hyprland-wiki/issues/269
     let wses = Workspaces::get().context("get all workspaces")?;
-    let mut ws_by_monitor = wses.fold(HashMap::new(), |mut hm, ws| {
-        hm.entry(ws.monitor.clone())
-            .or_insert_with(Vec::new)
-            .push(ws);
+    let mut ws_by_monitor = wses.iter().fold(HashMap::<_, Vec<_>>::new(), |mut hm, ws| {
+        hm.entry(ws.monitor_id).or_default().push(ws.clone());
         hm
     });
 
     // Sort workspaces by id
-    for (_, wses) in &mut ws_by_monitor {
+    for wses in ws_by_monitor.values_mut() {
         wses.sort_by_key(|ws| ws.id);
 
         // Also inject any missing (presumably empty) workspaces to avoid jumping
@@ -39,6 +37,7 @@ fn report() -> anyhow::Result<()> {
                     id: i,
                     name: format!("{i}"),
                     monitor: old_wses[0].monitor.clone(),
+                    monitor_id: old_wses[0].monitor_id,
                     windows: 0,
                     fullscreen: false,
                     last_window: Address::new(""),
@@ -59,11 +58,11 @@ fn report() -> anyhow::Result<()> {
 
     let mut i = 1;
     for m in &monitors {
-        let Some(wses) = ws_by_monitor.get(&m.name) else {
+        let Some(wses) = ws_by_monitor.get(&m.id) else {
             eprintln!("no workspaces on monitor {}", m.name);
             continue;
         };
-        for (wsi, ws) in wses.into_iter().enumerate() {
+        for (wsi, ws) in wses.iter().enumerate() {
             println!("workspace_{i}|string|{}", ws.name);
             println!("workspace_{i}_windows|int|{}", ws.windows);
             println!("workspace_{i}_index_on_monitor|int|{wsi}");
@@ -81,7 +80,7 @@ fn report() -> anyhow::Result<()> {
     }
     // And to help with rendering since yambar is unhelpful
     println!("workspace_count|int|{i}");
-    println!("");
+    println!();
 
     Ok(())
 }
