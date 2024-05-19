@@ -1,13 +1,36 @@
 Enable [Yambar] to show [Hyprland] workspaces.
 
+# Installation
+
+Once installed use the Yambar config further down in the README. You'll need
+to adjust the `script` path depending on your installation method.
+
+## Cargo
+
 Assuming you have [Rust installed][Rust], run:
 
 ```console
 $ cargo install yambar-hyprland-wses
 ```
 
-and then use the Yambar config further down in the README. You'll need
-to adjust the `script` path.
+Use `/home/yourusernamehere/.cargo/bin/yambar-hyprland-wses` as your script path
+
+## Arch Linux
+
+There is a community maintained package available in the AUR. Assuming you have
+[yay], run:
+
+```console
+$ yay -S yambar-hyprland-wses
+```
+
+Use `/usr/bin/yambar-hyprland-wses` as your script path.
+
+## Nix
+
+There is a community maintained [Nix package] on nixpgs but I could not find
+documentation on how to configure it, so you are on your own a little bit here.
+Pull requests with documentation on this are welcome :)
 
 # Why?
 
@@ -71,6 +94,9 @@ with maybe some special handling on multi-monitor setups? If you make
 something good, please do report back!
 
 # Yambar configuration file:
+
+> You must change the path of the script depending on your installation method.
+> See installation notes above for more information.
 
 ```yaml
     - script:
@@ -228,6 +254,9 @@ something good, please do report back!
 [empty]: https://github.com/hyprwm/Hyprland/issues/2723#issuecomment-1637144432
 [particles]: https://codeberg.org/dnkl/yambar/src/branch/master/doc/yambar-particles.5.scd
 [click]: https://codeberg.org/dnkl/yambar/src/commit/d6e7710a7ebd0be1f2dba677394f5b30b3e52a4f/doc/yambar-particles.5.scd#L87-L102
+[yay]: https://github.com/Jguer/yay
+[paru]: https://github.com/Morganamilo/paru
+[Nix package]: https://search.nixos.org/packages?show=yambar-hyprland-wses
 
 # License
 
