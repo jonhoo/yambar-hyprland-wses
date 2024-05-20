@@ -13,7 +13,7 @@ Assuming you have [Rust installed][Rust], run:
 $ cargo install yambar-hyprland-wses
 ```
 
-Use `/home/yourusernamehere/.cargo/bin/yambar-hyprland-wses` as your script path
+Use `~/.cargo/bin/yambar-hyprland-wses` as your script path
 
 ## Arch Linux
 
@@ -100,7 +100,7 @@ something good, please do report back!
 
 ```yaml
     - script:
-        path: /home/yourusernamehere/.cargo/bin/yambar-hyprland-wses
+        path: ~/.cargo/bin/yambar-hyprland-wses
         anchors:
           ws_focused: &ws_focused fba922ff
           ws_active: &ws_active ffaa00ff
