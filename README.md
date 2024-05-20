@@ -17,11 +17,25 @@ Use `~/.cargo/bin/yambar-hyprland-wses` as your script path
 
 ## Arch Linux
 
-There is a community maintained package available in the AUR. Assuming you have
-[yay], run:
+There is a community maintained package available in the AUR which can be
+installed manually or with any AUR helper.
+
+Assuming you have [paru], run:
+```console
+$ paru -S yambar-hyprland-wses
+```
+
+Assuming you have [yay], run:
 
 ```console
 $ yay -S yambar-hyprland-wses
+```
+
+Or if you would like to install the package without an AUR helper use:
+```console
+$ git clone https://aur.archlinux.org/yambar-hyprland-wses.git
+$ cd yambar-hyprland-wses
+$ makepkg -si
 ```
 
 Use `/usr/bin/yambar-hyprland-wses` as your script path.
